@@ -187,7 +187,8 @@ summary(GSS$tidyLaborStatus)
 
 ## Reordering factor levels
 
-library(forcats) summary(GSS$OpinionOfIncome)
+library(forcats) 
+summary(GSS$OpinionOfIncome)
 
 GSS<-GSS %>% mutate(tidyOpinionOfIncome= fct_relevel(OpinionOfIncome, 
                                                      "Far above average", 
@@ -237,11 +238,17 @@ HELPsmall<-HELPsmall%>% mutate(drink_stat=case_when(
 
 HELPsmall%>% group_by(drink_stat)%>% dplyr::count()
 
+#dates
 
+mydate <- ymd("1993-12-09")
 
-
-
-
+## subtract birthday from todays date
+age <- today() - mydate
+## Warning in with_tz(Sys.time(), tzone): Unrecognized time zone ''
+age
+## Time difference of 11726 days
+## a duration object can get this information in years
+as.duration(age)
 
 
 
